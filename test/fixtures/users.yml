@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyText
+  photo: MyText
+  Bio: MyText
+  PostCounter: MyString
+  integer: MyString
+
+two:
+  Name: MyText
+  photo: MyText
+  Bio: MyText
+  PostCounter: MyString
+  integer: MyString
