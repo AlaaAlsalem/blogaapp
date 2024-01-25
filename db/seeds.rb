@@ -8,8 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-first_user = User.create(name: 'Tom', photo: 'https://picsum.photos/200/500', bio: 'Teacher from Mexico.')
-second_user = User.create(name: 'Lilly', photo: 'https://picsum.photos/300/500', bio: 'Teacher from Poland.')
+first_user = User.create(name: 'Tom', photo: 'https://picsum.photos/200/500', bio: 'Teacher from Mexico.',post_counter:5)
+#second_user = User.create(name:'Aladdin', photo:'myphoto',bio:'it is bio',post_counter:5)
+second_user = User.create(name: 'Lilly', photo: 'https://picsum.photos/300/500', bio: 'Teacher from Poland.',post_counter:5)
 first_post = Post.create(author: first_user, Title: 'Hello', Text: 'This is my first post')
 second_post = Post.create(author: first_user, Title: 'Hey', Text: 'This is my second post')
 third_post = Post.create(author: first_user, Title: 'Hi', Text: 'This is my third post')
