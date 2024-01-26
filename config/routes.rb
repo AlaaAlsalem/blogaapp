@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
+  root "user#index"
  
-  get '/user', to: 'user#index', as: 'users'
-  
-  get '/user/:id', to: 'user#show', as: 'user'
-
-  get '/posts/', to: 'post#index'
-  get '/posts/show', to: 'post#show'
-
+  resources :user , only: [:index, :show] do
+    resources :post, only: [:index, :show]
+  end
 end
