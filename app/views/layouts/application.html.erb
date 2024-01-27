@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blogaapp</title>
+    <title>BlogApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+   <nav class="sticky-top navbar navbar-dark bg-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"> 👤 Blog</a>
+      </div>
+    </nav>
+    <div class="container" style="padding-bottom:50px">
+      <%= yield %>
+    </div>
+    <footer class="mt-4 d-flex justify-content-center fixed-bottom navbar navbar-light bg-light">
+      <span class="fs-6 my-2">All</span>
+    </footer>  </body>
 </html>
