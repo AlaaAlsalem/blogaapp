@@ -8,11 +8,11 @@
     <div class="user-posts">
         <h5>Posts</h5>
         <% @user.three_latest_posts.each.with_index(1) do |post, index| %>
-            <a href="/users<%= @user.id %>/posts<%= post.id %>">
+            <a href="/users/<%= @user.id %>/posts<%= post.id %>">
                 <%= render partial: "/shared/post", locals: { post: post, index: index } %>
             </a>
         <% end %>
-        <a href="/users<%= @user.id %>/posts">
+        <a href="/users/<%= @user.id %>/posts">
             <button class="btn btn-primary">See all posts</button>
         </a>
     </div>
