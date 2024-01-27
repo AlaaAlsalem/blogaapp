@@ -2,13 +2,13 @@
 <main>
     <div class="post-container">
         <h2>
-            <%= @post.title%> by <%= @post.author.name%>
+            <%= @post.Title%> by <%= @post.author.name%>
         </h2>
         <p class="comment-like-count">
-            Comments: <%= @post.comments_counter%>, Likes:<%= @post.likes_counter%>
+            Comments: <%= @post.ComentsCounter%>, Likes:<%= @post.likes_counter%>
         </p>
         <div>
-            <%= @post.text%>
+            <%= @post.Text%>
         </div>
     </div>
     <div class="comments post-comments">
