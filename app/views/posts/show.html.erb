@@ -1,1 +1,23 @@
-<p> here will be details about one post</p>
+<h2>details of posts<h1>
+<main>
+    <div class="post-container">
+        <h2>
+            <%= @post.Title%> by <%= @post.author.name%>
+        </h2>
+        <p class="comment-like-count">
+            Comments: <%= @post.ComentsCounter%>, Likes:<%= @post.LikesCounter%>
+        </p>
+        <div>
+            <%= @post.Text%>
+        </div>
+    </div>
+    <div class="comments post-comments">
+        <h5>Comments</h5>
+        <% @comments=Post.find(@post.id).comments %>
+            <% @comments.each do |comment| %>
+                <p>
+                    <%= comment.author.name %> : <%= comment.Text %>
+                </p>
+            <% end %>
+    </div>
+</main>
