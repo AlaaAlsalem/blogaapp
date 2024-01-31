@@ -1,3 +1,4 @@
+
 <div class="container">
     <h1>Posts Detail</h1>
     <div class="post-detail">
@@ -23,5 +24,6 @@
         <% @post.comments.order(created_at: :desc).each do |comment| %>
             <%= render partial: "/shared/comment", locals: { comment: comment } %>
         <% end %>
+
     </div>
 </div>
