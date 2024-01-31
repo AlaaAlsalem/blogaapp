@@ -1,16 +1,10 @@
-<main>
-<div class="users-container">
-    <% @users.each do |user| %>
-    <a href="/users/<%= user.id %>" class="users-link">
-        <div class="user">
-            <img src=<%= user.photo %> alt="User Photo" class="user-photo">
-            <div class="user-details">
-                <h2 class="user-name"><%= user.name%></h2>
-                <h5 class="user-post-count">Number of posts: <%= user.post_counter %> </h5>
-            </div>
+<div class="container">
+    <h1>My Blog</h1>
 
-        </div>
+    <button type="button" class="post-button"><%= link_to "Post", new_user_post_path( user_id: @user.id), { class: "user-link" } %></button>
+    <% @users.each do |user| %>
+        <a href="/users/<%= user.id %>">
+            <%= render partial: "/shared/user", locals: { user: user } %>
         </a>
     <% end %>
 </div>
-</main>

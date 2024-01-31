@@ -1,35 +1,22 @@
-<main>
-    <div class="user-container">
-        <section class="user">
-            <img src=<%= @user.photo %> alt="User Photo" class="user-photo">
-            <div class="user-details">
-                <h2 class="user-name"><%= @user.name%></h2>
-                <h5 class="user-post-count">Number of posts: <%= @user.post_counter %> </h5>
-            </div>
-        </section>
-        <section class="user-posts">
-            <h3>All Posts from <%= @user.name %></h3>
-            <% @user.posts.each do |post| %>
-            <a href="/users/<%=@user.id%>/posts/<%=post.id%>" class="user-post-link">
-                <div class="post">
-                    <h4><%= post.Title %></h4>
-                    <p><%= truncate(post.Text, length: 180) %></p>
-                    <p class="comment-like-count">Comments: <%= post.ComentsCounter %>, Likes: <%= post.LikesCounter %></p>
-                </div>
-                <div class="comments">
-                    <h4>Comments</h4>
-                    <% post.five_latest_comments.each do |comment| %>
-                        <p  id="single-comment">
-                            <%= comment.author.name %> : <%= comment.Text %>
-                        </p>
-                    <% end %>
-                </div>
-                
+
+<div class="container">
+    <h1>Posts List</h1>
+    <%= render partial: "/shared/user", locals: { user: @user } %>
+    <div class="user-posts">
+        <% @posts.each.with_index(1) do |post, index| %>
+            <div class="post-with-comments">
+            <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+                <%= render partial: "/shared/post", locals: { post: post, index: index } %>
             </a>
-            <% end %>
-        </section>
-        <button class="button">
-                  <a href="/users" class="user-post-link">Pagination</a>
-                </button>
+
+                <div class="comments">
+                    <% post.five_latest_comments.each do |comment| %>
+
+                        <%= render partial: "/shared/comment", locals: { comment: comment } %>
+          <% end %>
+                </div>
+            </div>
+        <% end %>
+        <button class="btn btn-primary">More Posts</button>
     </div>
-</main>
+</div>
