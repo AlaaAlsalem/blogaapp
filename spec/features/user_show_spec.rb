@@ -14,7 +14,7 @@ RSpec.describe 'User integrations', type: :feature do
   end
   it 'displays total number of posts' do
     user = create(:user)
-    create_list(:post, 3, user: user)
+    create_list(:post, 3, user:)
     visit user_path(user)
     expect(page).to have_content("Posts Number: #{user.posts.count}")
   end
@@ -26,13 +26,13 @@ RSpec.describe 'User integrations', type: :feature do
 
   it 'displays the three most recent posts written by the user' do
     user = create(:user)
-    create(:post, user: user, title: 'First Post', created_at: 3.days.ago)
-    create(:post, user: user, title: 'Second Post', created_at: 2.days.ago)
-    create(:post, user: user, title: 'Third Post', created_at: 1.day.ago)
+    create(:post, user:, title: 'First Post', created_at: 3.days.ago)
+    create(:post, user:, title: 'Second Post', created_at: 2.days.ago)
+    create(:post, user:, title: 'Third Post', created_at: 1.day.ago)
     visit user_path(user)
     expect(page).to have_content('Third Post')
     expect(page).to have_content('Second Post')
-    expect(page).to have_content('First Post', count: 1) 
+    expect(page).to have_content('First Post', count: 1)
   end
   it 'redirects to all user posts ' do
     user = create(:user)
