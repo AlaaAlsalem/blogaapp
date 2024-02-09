@@ -76,7 +76,6 @@ To run the project, execute the following command in the terminal:
   - Twitter: [@buksimesi21](https://twitter.com/buksimesi21)  
   - LinkedIn: [LinkedIn] (https://www.linkedin.com/in/emesemesimolnar/)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
