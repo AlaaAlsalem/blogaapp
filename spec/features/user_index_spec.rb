@@ -1,9 +1,12 @@
 require 'spec_helper'
 RSpec.describe 'User integrations', type: :feature do
-  it 'displays all users' do
-    create(:user)
-    visit users_path
-    expect(page).to have_content('Andrew Carnegie')
+  let!(:user1) { create(:user, name: 'Andrew Carnegie') }
+  let!(:user2) { create(:user, name: 'Tolu Ajise') }
+
+  it 'displays usernames of all users' do
+      visit users_path
+      expect(page).to have_content(user1.name)
+      expect(page).to have_content(user2.name)
   end
 
   it 'displays user profile' do
