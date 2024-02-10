@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe 'posts#show', type: :feature do
-  let(:first_user) { User.create!(name: 'Mesi', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Mesi\'s biography', posts_counter: 3) }
-  let(:second_user) { User.create!(name: 'Mesi', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Mesi\'s biography', posts_counter: 3) }
+  let(:first_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', posts_counter: 3) }
+  let(:second_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', posts_counter: 3) }
   let!(:post1) do
     Post.create!(author: second_user, title: 'Post #1', text: 'some text', comments_counter: 2, likes_counter: 1)
   end
