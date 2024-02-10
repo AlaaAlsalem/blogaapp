@@ -3,19 +3,19 @@ require 'rails_helper'
 RSpec.feature 'Users Show', type: :feature do
   let(:first_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', posts_counter: 3) }
   let!(:post1) do
-    Post.create!(author: first_user, title: 'Post #1', text: 'some text', comments_counter: 2, likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #1', Text: 'some Text', ComentsCounter: 2, LikesCounter: 1)
   end
   let!(:post2) do
-    Post.create!(author: first_user, title: 'Post #2', text: 'another post content', comments_counter: 2,
-                 likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #2', Text: 'another post content', ComentsCounter: 2,
+                 LikesCounter: 1)
   end
   let!(:post3) do
-    Post.create!(author: first_user, title: 'Post #3', text: 'a new post with some interesting stuff',
-                 comments_counter: 3, likes_counter: 0)
+    Post.create!(author: first_user, Title: 'Post #3', Text: 'a new post with some interesting stuff',
+                 ComentsCounter: 3, LikesCounter: 0)
   end
   let!(:post4) do
-    Post.create!(author: first_user, title: 'Post #4', text: 'a post that should not be present on this page',
-                 comments_counter: 5, likes_counter: 10)
+    Post.create!(author: first_user, Title: 'Post #4', Text: 'a post that should not be present on this page',
+                 ComentsCounter: 5, LikesCounter: 10)
   end
   before do
     visit user_path(first_user)
@@ -35,19 +35,19 @@ end
 RSpec.feature 'Users Show', type: :feature do
   let(:first_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', posts_counter: 3) }
   let!(:post1) do
-    Post.create!(author: first_user, title: 'Post #1', text: 'some text', comments_counter: 2, likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #1', Text: 'some Text', ComentsCounter: 2, LikesCounter: 1)
   end
   let!(:post2) do
-    Post.create!(author: first_user, title: 'Post #2', text: 'another post content', comments_counter: 2,
-                 likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #2', Text: 'another post content', ComentsCounter: 2,
+                 LikesCounter: 1)
   end
   let!(:post3) do
-    Post.create!(author: first_user, title: 'Post #3', text: 'a new post with some interesting stuff',
-                 comments_counter: 3, likes_counter: 0)
+    Post.create!(author: first_user, Title: 'Post #3', Text: 'a new post with some interesting stuff',
+                 ComentsCounter: 3, LikesCounter: 0)
   end
   let!(:post4) do
-    Post.create!(author: first_user, title: 'Post #4', text: 'a post that should not be present on this page',
-                 comments_counter: 5, likes_counter: 10)
+    Post.create!(author: first_user, Title: 'Post #4', Text: 'a post that should not be present on this page',
+                 ComentsCounter: 5, LikesCounter: 10)
   end
   before do
     visit user_path(first_user)
@@ -64,29 +64,29 @@ end
 RSpec.feature 'Users Show', type: :feature do
   let(:first_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', posts_counter: 3) }
   let!(:post1) do
-    Post.create!(author: first_user, title: 'Post #1', text: 'some text', comments_counter: 2, likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #1', Text: 'some Text', ComentsCounter: 2, LikesCounter: 1)
   end
   let!(:post2) do
-    Post.create!(author: first_user, title: 'Post #2', text: 'another post content', comments_counter: 2,
-                 likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #2', Text: 'another post content', ComentsCounter: 2,
+                 LikesCounter: 1)
   end
   let!(:post3) do
-    Post.create!(author: first_user, title: 'Post #3', text: 'a new post with some interesting stuff',
-                 comments_counter: 3, likes_counter: 0)
+    Post.create!(author: first_user, Title: 'Post #3', Text: 'a new post with some interesting stuff',
+                 ComentsCounter: 3, LikesCounter: 0)
   end
   let!(:post4) do
-    Post.create!(author: first_user, title: 'Post #4', text: 'a post that should not be present on this page',
-                 comments_counter: 5, likes_counter: 10)
+    Post.create!(author: first_user, Title: 'Post #4', Text: 'a post that should not be present on this page',
+                 ComentsCounter: 5, LikesCounter: 10)
   end
   before do
     visit user_path(first_user)
   end
   it 'displays ownly the user\'s last three posts' do
     first_user.last_three_posts.each do
-      expect(page).to have_content(post4.text)
-      expect(page).to have_content(post3.text)
-      expect(page).to have_content(post2.text)
-      expect(page).to_not have_content(post1.text)
+      expect(page).to have_content(post4.Text)
+      expect(page).to have_content(post3.Text)
+      expect(page).to have_content(post2.Text)
+      expect(page).to_not have_content(post1.Text)
     end
   end
 end
@@ -94,19 +94,19 @@ end
 RSpec.feature 'Users Show', type: :feature do
   let(:first_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', posts_counter: 3) }
   let!(:post1) do
-    Post.create!(author: first_user, title: 'Post #1', text: 'some text', comments_counter: 2, likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #1', Text: 'some Text', ComentsCounter: 2, LikesCounter: 1)
   end
   let!(:post2) do
-    Post.create!(author: first_user, title: 'Post #2', text: 'another post content', comments_counter: 2,
-                 likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #2', Text: 'another post content', ComentsCounter: 2,
+                 LikesCounter: 1)
   end
   let!(:post3) do
-    Post.create!(author: first_user, title: 'Post #3', text: 'a new post with some interesting stuff',
-                 comments_counter: 3, likes_counter: 0)
+    Post.create!(author: first_user, Title: 'Post #3', Text: 'a new post with some interesting stuff',
+                 ComentsCounter: 3, LikesCounter: 0)
   end
   let!(:post4) do
-    Post.create!(author: first_user, title: 'Post #4', text: 'a post that should not be present on this page',
-                 comments_counter: 5, likes_counter: 10)
+    Post.create!(author: first_user, Title: 'Post #4', Text: 'a post that should not be present on this page',
+                 ComentsCounter: 5, LikesCounter: 10)
   end
   before do
     visit user_path(first_user)

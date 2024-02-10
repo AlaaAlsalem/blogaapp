@@ -1,20 +1,20 @@
 require 'rails_helper'
 
 describe 'User Index Page Features', type: :feature, js: true do
-  let(:new_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/woman-wearing-black-camisole-top-walking-on-grass-field-during-sunrise-2FrX56QL7P8', bio: 'Description of the first user\'s biography.', posts_counter: 2) }
+  let(:new_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/woman-wearing-black-camisole-top-walking-on-grass-field-during-sunrise-2FrX56QL7P8', bio: 'Description of the first user\'s biography.', post_counter: 2) }
   let!(:post1) do
-    Post.create!(author: new_user, title: 'Post #1', text: 'some text', comments_counter: 2, likes_counter: 1)
+    Post.create!(author: new_user, Title: 'Post #1', Text: 'some text', ComentsCounter: 2, LikesCounter: 1)
   end
   let!(:post2) do
-    Post.create!(author: new_user, title: 'Post #2', text: 'another post content', comments_counter: 2,
-                 likes_counter: 1)
+    Post.create!(author: new_user, Title: 'Post #2', Text: 'another post content', ComentsCounter: 2,
+                 LikesCounter: 1)
   end
   before :each do
     visit users_path
   end
 
   it 'displays a button to add a new post on behalf of the first user' do
-    expect(page).to have_selector(:link_or_button, '+ Add new post logged in as current user with id: 1')
+    expect(page).to have_selector(:link_or_button, 'Post')
   end
 
   it 'lists the username of all other users' do

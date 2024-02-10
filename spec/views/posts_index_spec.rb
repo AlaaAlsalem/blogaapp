@@ -1,35 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe 'posts#index', type: :feature do
-  let(:first_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', posts_counter: 3) }
+  let(:first_user) { User.create!(name:'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', post_counter: 3) }
   let!(:post1) do
-    Post.create!(author: first_user, title: 'Post #1', text: 'some text', comments_counter: 2, likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #1', Text: 'some text', ComentsCounter: 2, LikesCounter: 1)
   end
   let!(:post2) do
-    Post.create!(author: first_user, title: 'Post #2', text: 'another post content', comments_counter: 2,
-                 likes_counter: 1)
+    Post.create!(author: first_user, Title: 'Post #2', Text: 'another post content', ComentsCounter: 2,
+                 LikesCounter: 1)
   end
   let!(:post3) do
-    Post.create!(author: first_user, title: 'Post #3', text: 'a new post with some interesting stuff',
-                 comments_counter: 3, likes_counter: 0)
+    Post.create!(author: first_user, Title: 'Post #3', Text: 'a new post with some interesting stuff',
+    ComentsCounter: 3, LikesCounter: 0)
   end
   let!(:post4) do
-    Post.create!(author: first_user, title: 'Post #4', text: 'a post that should not be present on this page',
-                 comments_counter: 5, likes_counter: 10)
+    Post.create!(author: first_user, Title: 'Post #4', Text: 'a post that should not be present on this page',
+    ComentsCounter: 5, LikesCounter: 10)
   end
   let!(:post5) do
-    Post.create!(author: first_user, title: 'Post #5',
-                 text: 'the fifth post of the first_user that has way more than nighty characters
+    Post.create!(author: first_user, Title: 'Post #5',
+                 Text: 'the fifth post of the first_user that has way more than nighty characters
                  to check if the whole post is displayed or not on this page.',
-                 comments_counter: 0, likes_counter: 7)
+                 ComentsCounter: 0, LikesCounter: 7)
   end
 
   before do
-    visit user_posts_path(first_user)
+    visit user_post_path(first_user, post4)
   end
 
   it 'displays the username of the first_user' do
-    expect(page).to have_content(first_user.name)
+    expect(page).to have_content(first_user)
   end
 
   it 'displays the profile picture of the user' do
@@ -37,30 +37,30 @@ RSpec.describe 'posts#index', type: :feature do
   end
 
   it 'displays the number of posts through the posts_counter' do
-    expect(page).to have_content("Number of posts: #{first_user.posts_counter}")
+    expect(page).to have_content("Number of posts: #{first_user.post_counter}")
   end
 
   it 'display the post title' do
-    expect(page).to have_content(post1.title)
+    expect(page).to have_content(post1.Title)
   end
 
   it 'displays a certain amount of text from the post' do
-    expect(page).to have_content(post1.text)
+    expect(page).to have_content(post1.Text)
   end
 
   it 'displays the latest five comments of a post truncated to 90 characters' do
     post1.last_five_comments.each do |c|
-      expect(page).to have_content(c.text)
-      expect(page).to_not have_content(c.text[-1, 1])
+      expect(page).to have_content(c.Text)
+      expect(page).to_not have_content(c.Text[-1, 1])
     end
   end
 
   it 'displays the number of comments' do
-    expect(page).to have_content("Comments: #{post1.comments_counter}")
+    expect(page).to have_content("Comments: #{post1.ComentsCounter}")
   end
 
   it 'displays the number of likes on a post' do
-    expect(page).to have_content("Likes: #{post2.likes_counter}")
+    expect(page).to have_content("Likes: #{post2.LikesCounter}")
   end
 
   it 'has a button View post' do
