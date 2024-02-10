@@ -116,3 +116,7 @@
 .post-comments {
   margin: 0 30px;
 }
+
+.field {
+  width: 100%;
+}
