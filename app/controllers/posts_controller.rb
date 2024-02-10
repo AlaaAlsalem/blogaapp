@@ -2,11 +2,14 @@ class PostsController < ApplicationController
   before_action :set_user
 
   def index
-    @posts = @user.posts
+    @posts = User.find(params[:user_id])
+    @posts = @user.posts.includes(:comments)
   end
 
   def show
-    @post = @user.posts.find(params[:id])
+    @post = Post.find(params[:id])
+    @comments = @post.comments
+    @likes = @post.likes
   end
 
   def new

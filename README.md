@@ -71,6 +71,16 @@ To run the project, execute the following command in the terminal:
 - GitHub:[@AlaaAlsalem](https://github.com/AlaaAlsalem)
 - Linkedin:[AladdinAlsalem](https://www.linkedin.com/in/aladdin-alsalem/)
 
+👤 **Molnar Emese**
+  - GitHub: [@Mesi21](https://github.com/Mesi21)
+  - Twitter: [@buksimesi21](https://twitter.com/buksimesi21)  
+  - LinkedIn: [LinkedIn] (https://www.linkedin.com/in/emesemesimolnar/)
+
+👤 **Collins Akorda**
+  - GitHub: [@firstpj](https://github.com/firstpj)
+  - Twitter: [@AkordaC](https://twitter.com/AkordaC)  
+  - LinkedIn: [LinkedIn] (https://www.linkedin.com/in/collins-akorda-bb46b2232/)
+  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

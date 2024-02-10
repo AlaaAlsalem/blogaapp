@@ -5,14 +5,10 @@ ruby '3.2.2'
 gem 'rubocop', '>= 1.0', '< 2.0'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3'
-
-# add RSpec test
-# group :development, :test do
-# gem 'rspec-rails'
-# end
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
+# add devise
+gem 'devise'
 
 # Use sqlite3 as the database for Active Record
 # gem "sqlite3", "~> 1.4"
