@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'posts#index', type: :feature do
-  let(:first_user) { User.create!(name:'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', post_counter: 3) }
+  let(:first_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', post_counter: 3) }
   let!(:post1) do
     Post.create!(author: first_user, Title: 'Post #1', Text: 'some text', ComentsCounter: 2, LikesCounter: 1)
   end
@@ -11,11 +11,11 @@ RSpec.describe 'posts#index', type: :feature do
   end
   let!(:post3) do
     Post.create!(author: first_user, Title: 'Post #3', Text: 'a new post with some interesting stuff',
-    ComentsCounter: 3, LikesCounter: 0)
+                 ComentsCounter: 3, LikesCounter: 0)
   end
   let!(:post4) do
     Post.create!(author: first_user, Title: 'Post #4', Text: 'a post that should not be present on this page',
-    ComentsCounter: 5, LikesCounter: 10)
+                 ComentsCounter: 5, LikesCounter: 10)
   end
   let!(:post5) do
     Post.create!(author: first_user, Title: 'Post #5',
