@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User Index Page Features', type: :feature, js: true do
-  let(:new_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/woman-wearing-black-camisole-top-walking-on-grass-field-during-sunrise-2FrX56QL7P8', bio: 'Description of the first user\'s biography.', post_counter: 2) }
+  let(:new_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/woman-wearing-black-camisole-top-walking-on-grass-field-during-sunrise-2FrX56QL7P8', bio: 'Description of the first user\'s biography.', post_counter: 0) }
   let!(:post1) do
     Post.create!(author: new_user, Title: 'Post #1', Text: 'some text', ComentsCounter: 2, LikesCounter: 1)
   end
@@ -10,7 +10,7 @@ describe 'User Index Page Features', type: :feature, js: true do
                  LikesCounter: 1)
   end
   before :each do
-    visit users_path
+    visit user_path
   end
 
   it 'displays a button to add a new post on behalf of the first user' do

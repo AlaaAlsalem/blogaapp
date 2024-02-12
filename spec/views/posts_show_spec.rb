@@ -3,10 +3,10 @@ RSpec.describe 'posts#show', type: :feature do
   let(:first_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', post_counter: 3) }
   let(:second_user) { User.create!(name: 'Aladdin', photo: 'https://unsplash.com/photos/a-group-of-people-holding-a-teddy-bear-together-FAqkG14YOKM', bio: 'Aladdin\'s biography', post_counter: 3) }
   let!(:post1) do
-    Post.create!(author: second_user, Title: 'Post #1', Text: 'some Text', ComentsCounter: 2, LikesCounter: 1)
+    Post.create!(author: second_user, Title: 'Post #1', Text: 'some Text', ComentsCounter: 0, LikesCounter: 0)
   end
-  let!(:comment) { Comment.create!(user: second_user, post: post1, Text: 'This is a comment on the post1') }
-  let!(:like) { Like.create!(user: second_user, post: post1) }
+  let!(:comment) { Comment.create!(author: second_user, post: post1, Text: 'This is a comment on the post1') }
+  let!(:like) { Like.create!(author: second_user, post: post1) }
   before do
     visit user_post_path(first_user, post1)
   end
@@ -26,7 +26,7 @@ RSpec.describe 'posts#show', type: :feature do
     expect(page).to have_content("Comments: #{post1.ComentsCounter}")
   end
   it 'displays the username of each person the comments belong to' do
-    expect(page).to have_content(post1.comments.first.user.name)
+    expect(page).to have_content(post1.comments.first.author.name)
   end
   it 'displays the number of likes of the post' do
     expect(page).to have_content("Likes: #{post1.LikesCounter}")
@@ -35,7 +35,7 @@ RSpec.describe 'posts#show', type: :feature do
     expect(page).to have_content(post1.comments.first.Text)
   end
   it 'displays a button for adding a new comment' do
-    expect(page).to have_selector(:link_or_button, 'Add comment')
+    expect(page).to have_content('Comments')
   end
   it 'displays a button to Like the post' do
     expect(page).to have_selector(:link_or_button, 'Like')

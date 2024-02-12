@@ -3,9 +3,11 @@
     <h1>Posts List</h1>
     <%= render partial: "/shared/user", locals: { user: @user } %>
     <div class="user-posts">
+    
         <% @posts.each.with_index(1) do |post, index| %>
             <div class="post-with-comments">
-            <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+            <a href="/users/<%= @user.id %>/posts/<%= post.id %>">  
+
                 <%= render partial: "/shared/post", locals: { post: post, index: index } %>
             </a>
 
