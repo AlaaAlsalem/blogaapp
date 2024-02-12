@@ -1,8 +1,7 @@
 <div class="container">
     <h1>My Blog</h1>
 
-    <button type="button" class="post-button"><%= link_to "Post", new_user_post_path( user_id: @user.id), { class: "user-link" } %></button>
-    <% @users.each do |user| %>
+     <% @users.each do |user| %>
         <a href="/users/<%= user.id %>">
             <%= render partial: "/shared/user", locals: { user: user } %>
         </a>

@@ -19,6 +19,7 @@
             <p><%= @post.Text %></p>
         </div>
     </div>
+    <img src="<%= @user.photo %>" alt="user-photo">
     <div class="comments">
         <h5>Recent Comments</h5>
         <% @post.comments.order(created_at: :desc).each do |comment| %>
